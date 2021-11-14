@@ -1,10 +1,10 @@
 const Table = props => {
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th>Agent</th>
-                    <th>Sales</th>
+        <table className="table table-bordered">
+            <thead className="thead-light">
+                <tr className="text-left">
+                    <th className="p-3">Agent</th>
+                    <th className="p-3">Sales</th>
                 </tr>
             </thead>
         </table>
