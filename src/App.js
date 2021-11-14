@@ -11,7 +11,9 @@ const App = () => {
           </header>
 
         </div>
-
+        <div className="row">
+          <h5 className="bg-dark text-light p-3">Sales by agent: </h5>
+        </div>
       </div>
     </div>
   );
