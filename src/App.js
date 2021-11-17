@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Table from './components/Table';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -56,8 +57,7 @@ const App = () => {
     };
   };
 
-  console.log(salesByAgent)
-
+  const [agentState, setAgentState] = useState(salesByAgent[0]);
   
 
   return (
@@ -71,7 +71,7 @@ const App = () => {
         </div>
         <div className="row">
           <div className="col-12">
-            <h5 className="bg-dark text-light p-3">Sales by agent: </h5>
+            <h5 className="bg-dark text-light p-3">Sales by agent: {agentState.name} </h5>
           </div>
         </div>
         <div className="row">
