@@ -8,7 +8,8 @@ const PieChart = props => {
         dataArr.push(typeArr);
     }
     return (
-        <div className="border border-dark p-0">
+        <div className="">
+            <h3 className="d-md-none text-center">Sales by Property Type for {props.name}</h3>
             <Chart
                 width={'100%'}
                 height={'500px'}
@@ -17,7 +18,8 @@ const PieChart = props => {
                 data={dataArr}
                 // legend.position = {{position: 'bottom', alignment: 'start'}}
                 options = {{
-                    legend: 'bottom'
+                    legend: 'bottom',
+                    chartArea: {'width': '100%', 'height': '80%'}
                 }}
                 rootProps={{ 'data-testid': '1' }}
             />
