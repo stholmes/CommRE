@@ -1,3 +1,5 @@
+import TableRow from "./TableRow";
+
 const Table = props => {
     return (
         <table className="table table-bordered">
@@ -7,6 +9,9 @@ const Table = props => {
                     <th className="p-3">Sales</th>
                 </tr>
             </thead>
+            <tbody>
+                {props.totalSalesByAgent.map(agent => <TableRow agent={agent.name} salesTotal={agent.totalSales} />)}
+            </tbody>
         </table>
     )
 };

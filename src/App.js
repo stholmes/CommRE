@@ -58,6 +58,7 @@ const App = () => {
 
   console.log(salesByAgent)
 
+  
 
   return (
     <div className="App">
@@ -75,7 +76,7 @@ const App = () => {
         </div>
         <div className="row">
           <div className="col-xs-12 col-md-4">
-            <Table />
+            <Table totalSalesByAgent={salesByAgent}/>
 
           </div>
         </div>
