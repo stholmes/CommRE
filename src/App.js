@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Table from './components/Table';
+import PieChart from './components/PieChart';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const dummyData = [
@@ -85,6 +86,9 @@ const App = () => {
           <div className="col-xs-12 col-md-4">
             <Table totalSalesByAgent={salesByAgent} selectAgent={selectAgentHandler}/>
 
+          </div>
+          <div className="col-xs-12 col-md-8">
+            <PieChart salesData={agentState.sales} />
           </div>
         </div>
       </div>
