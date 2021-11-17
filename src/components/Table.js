@@ -10,7 +10,7 @@ const Table = props => {
                 </tr>
             </thead>
             <tbody>
-                {props.totalSalesByAgent.map(agent => <TableRow agent={agent.name} salesTotal={agent.totalSales} />)}
+                {props.totalSalesByAgent.map((agent, index) => <TableRow agent={agent.name} salesTotal={agent.totalSales} index={index} selectAgent={props.selectAgent} />)}
             </tbody>
         </table>
     )

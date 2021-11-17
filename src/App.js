@@ -59,6 +59,13 @@ const App = () => {
 
   const [agentState, setAgentState] = useState(salesByAgent[0]);
   
+  const selectAgentHandler = (event) => {
+    const selectedAgentIndex = event.target.getAttribute('data-index');
+    if (selectedAgentIndex > salesByAgent.length){
+      return;
+    }
+    setAgentState(salesByAgent[selectedAgentIndex]);
+  };
 
   return (
     <div className="App">
@@ -76,7 +83,7 @@ const App = () => {
         </div>
         <div className="row">
           <div className="col-xs-12 col-md-4">
-            <Table totalSalesByAgent={salesByAgent}/>
+            <Table totalSalesByAgent={salesByAgent} selectAgent={selectAgentHandler}/>
 
           </div>
         </div>
