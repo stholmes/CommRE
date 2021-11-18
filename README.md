@@ -8,7 +8,7 @@ Navigate to 'CommRE-main/server' and run `npm install`. The server is Express.js
 
 ### FrontEnd
 
-In a separate terminal, nnpm avigate to the top level directory, 'CommRE-main' and run `npm install` to set up React and all of the dependencies. Frontend runs on port 3000. Run `npm start` to view the project.
+In a separate terminal, navigate to the top level directory, 'CommRE-main' and run `npm install` to set up React and all of the dependencies. Frontend runs on port 3000. Run `npm start` to view the project.
 
 ### Notes
 
