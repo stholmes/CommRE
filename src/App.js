@@ -3,60 +3,8 @@ import Table from './components/Table';
 import PieChart from './components/PieChart';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const dummyData = [
-  {agent: 'steve', propertyType:'Office'},
-  {agent: 'steve', propertyType:'Land'},
-  {agent: 'steve', propertyType:'Residential'},
-  {agent: 'steve', propertyType:'Office'},
-  {agent: 'steve', propertyType:'Office'},
-  {agent: 'steve', propertyType:'Land'},
-  {agent: 'steve', propertyType:'Land'},
-  {agent: 'steve', propertyType:'Residential'},
-  {agent: 'steve', propertyType:'Residential'},
-  {agent: 'steve', propertyType:'Office'},
-  {agent: 'steve', propertyType:'Land'},
-  {agent: 'steve', propertyType:'Residential'},
-  {agent: 'steve', propertyType:'Residential'},
-  {agent: 'steve', propertyType:'Land'},
-  {agent: 'steve', propertyType:'Office'},
-  {agent: 'steve', propertyType:'Residential'},
-  {agent: 'bob', propertyType:'Land'},
-  {agent: 'bob', propertyType:'Land'},
-  {agent: 'bob', propertyType:'Residential'},
-  {agent: 'bob', propertyType:'Office'},
-  {agent: 'jack', propertyType:'Office'},
-  {agent: 'jack', propertyType:'Office'},
-  {agent: 'jack', propertyType:'Land'},
-  {agent: 'jack', propertyType:'Residential'},
-  {agent: 'jack', propertyType:'Office'},
-];
-
 const App = () => {
-  // const salesByAgent = [];
-  // const salesDataIterable = dummyData.values();
 
-  // for ( const sale of salesDataIterable){
-  //   let agentName = sale.agent;
-  //   let propertyType = sale.propertyType;
-
-  //   if (salesByAgent.findIndex(sale => sale.name === agentName) === -1){
-  //     let agentObj = {};
-  //     agentObj.name = agentName;
-  //     agentObj.totalSales = 1;
-  //     agentObj.sales = {};
-  //     agentObj.sales[propertyType] = 1;
-  //     salesByAgent.push(agentObj);
-  //   }else{
-  //     let index = salesByAgent.findIndex(agent => agent.name === agentName);
-
-  //     if (salesByAgent[index].sales[propertyType] === undefined){
-  //       salesByAgent[index].sales[propertyType] = 1;
-  //     }else{
-  //       salesByAgent[index].sales[propertyType] += 1;
-  //     };
-  //     salesByAgent[index].totalSales += 1;
-  //   };
-  // };
   const [dataState, setDataState] = useState('')
   const [agentState, setAgentState] = useState('');
   // Set isLoading to true for initial mounting
@@ -67,9 +15,10 @@ const App = () => {
   }, [])
   
 
-
+  // Event Handler passed to Table component into nested TableRow component
   const selectAgentHandler = (event) => {
     const selectedAgentIndex = event.target.getAttribute('data-index');
+    
     if (selectedAgentIndex > dataState.length){
       return;
     }
@@ -103,9 +52,7 @@ const App = () => {
       salesData.push(saleObj);
 
     }
-    console.log(salesData);
-    console.log('finished loading');
-
+    // Data aggregation
     const salesDataIterable = salesData.values();
 
     for ( const sale of salesDataIterable){
@@ -130,12 +77,10 @@ const App = () => {
         salesByAgent[index].totalSales += 1;
       };
     };
-    console.log(salesByAgent)
+    
     setDataState(salesByAgent)
-    console.log(dataState)
     setAgentState(salesByAgent[0])
-    setTimeout(()=>setIsLoading(false), 2000);
-   
+    setTimeout(()=>setIsLoading(false), 1500);
   }
 
   return (
@@ -155,8 +100,7 @@ const App = () => {
         </div>
         <div className="row">
           <div className="col-xs-12 col-md-4">
-           {!isLoading && <Table totalSalesByAgent={dataState} selectAgent={selectAgentHandler}/>}
-
+            {!isLoading && <Table totalSalesByAgent={dataState} selectAgent={selectAgentHandler}/>}
           </div>
           <div className="col-xs-12 col-md-8">
             {!isLoading && <PieChart salesData={agentState.sales} name={agentState.name} />}
