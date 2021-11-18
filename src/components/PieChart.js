@@ -29,7 +29,6 @@ const PieChart = props => {
                 chartType="PieChart"
                 loader={<div>Loading Chart</div>}
                 data={dataArr}
-                
                 options = {{
                     legend: 'bottom',
                     chartArea: {'width': '100%', 'height': '80%'}

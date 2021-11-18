@@ -7,7 +7,7 @@ const TableRow = props => {
                 onClick={props.selectAgent}
                 style={{cursor: 'pointer'}}    
             >
-                {props.agent}
+                {props.name}
             </td>
             <td>{props.salesTotal}</td>
         </tr>
